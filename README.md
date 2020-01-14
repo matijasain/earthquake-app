@@ -1,1 +1,1 @@
-# earthquake-app
+# Earthquake-app
