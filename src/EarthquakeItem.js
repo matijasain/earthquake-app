@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import map from './img/map.png';
-
 class EarthquakeItem extends React.Component {
   constructor(props) {
     super(props);
@@ -19,20 +17,17 @@ class EarthquakeItem extends React.Component {
       earthquakeAlert,
       tsunami,
       earthquakeUrl,
-      // lat,
-      // lon,
-      // earthquakeMinimap,
+      children,
     } = this.props;
 
     return (
       <div className="item">
-        <div className="image">
-          <img src={map} alt="map" />
-        </div>
+        <div className="image">{children}</div>
+
         <div className="content">
           <h3 className="header">{earthquakeName}</h3>
           <div className="meta">
-            <span>Date: {moment(earthquakeDate).format('MMM Do YYYY')}</span>
+            <span>Date: {moment(earthquakeDate).format('YYYY-MM-DD')}</span>
           </div>
           <div className="description">
             <p>Magnitude: {earthquakeMagnitude}</p>
@@ -62,9 +57,7 @@ EarthquakeItem.propTypes = {
   earthquakeAlert: PropTypes.string,
   tsunami: PropTypes.number.isRequired,
   earthquakeUrl: PropTypes.string.isRequired,
-  // lat: PropTypes.number.isRequired,
-  // lon: PropTypes.number.isRequired,
-  // earthquakeMinimap: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 EarthquakeItem.defaultProps = {

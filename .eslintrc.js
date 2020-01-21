@@ -11,6 +11,8 @@ module.exports = {
   rules: {
     'jsx-a11y/href-no-hash': ['off'],
     'react/no-unused-state': ['off'],
+    'react/button-has-type': ['off'],
+    'react/forbid-prop-types': ['off'],
     // 'import/no-extraneous-dependencies': ['error', { devDependencies: 'true' }],
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
     'max-len': [
