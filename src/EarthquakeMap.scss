@@ -1,0 +1,9 @@
+.leaflet-container {
+  width: 150px;
+  height: 160px;
+
+  @media only screen and (max-width: 767px) {
+    width: 90vw;
+    height: 260px;
+  }
+}
