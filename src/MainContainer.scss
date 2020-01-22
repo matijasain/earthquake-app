@@ -2,12 +2,32 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: yellow;
+  background-color: rgba(247, 213, 101, 0.85);
   padding: 50px;
-  font-size: 20px;
-  height: 250px;
+  height: 55vh;
+  font-size: 16px;
+
+  .button.custom-button {
+    margin: 5px 5px 5px 0;
+  }
+
+  .custom-filter-section-bottom {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.5vh;
+
+    &-inner {
+      margin: 10px 0 10px 0;
+    }
+  }
 }
 
 .extra {
   word-wrap: break-word;
+}
+
+.item {
+  @media only screen and (min-width: 767px) {
+    padding-left: 40px !important;
+  }
 }

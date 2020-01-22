@@ -13,6 +13,7 @@ module.exports = {
     'react/no-unused-state': ['off'],
     'react/button-has-type': ['off'],
     'react/forbid-prop-types': ['off'],
+    'jsx-a11y/label-has-associated-control': ['off'],
     // 'import/no-extraneous-dependencies': ['error', { devDependencies: 'true' }],
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
     'max-len': [

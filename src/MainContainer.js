@@ -9,12 +9,12 @@ class MainContainer extends React.Component {
 
     this.state = {
       earthquakes: [],
-      filteredEarthquakes: [],
       toggleSortingDate: 'asc',
       toggleSortingMag: 'asc',
       filteredDays: 30,
-      filteredMagnitude: 5,
-      filteredAlertType: 'yellow',
+      filteredMinMagnitude: 3,
+      filteredMaxMagnitude: 7,
+      filteredAlertType: '',
     };
   }
 
@@ -68,8 +68,12 @@ class MainContainer extends React.Component {
     this.setState({ filteredDays: event.target.value });
   };
 
-  handleFilteredMagnitude = event => {
-    this.setState({ filteredMagnitude: event.target.value });
+  handleMinFilteredMagnitude = event => {
+    this.setState({ filteredMinMagnitude: event.target.value });
+  };
+
+  handleMaxFilteredMagnitude = event => {
+    this.setState({ filteredMaxMagnitude: event.target.value });
   };
 
   handleAlertType = event => {
@@ -77,22 +81,22 @@ class MainContainer extends React.Component {
   };
 
   handleApplyFilters = () => {
-    const { filteredDays, filteredMagnitude, filteredAlertType } = this.state;
+    const {
+      filteredDays,
+      filteredMinMagnitude,
+      filteredMaxMagnitude,
+      filteredAlertType,
+    } = this.state;
 
     const filteredTime = moment()
       .subtract(filteredDays, 'days')
       .format('YYYY-MM-DD');
 
-    // moment(Date.now()).format('YYYY-MM-DD') - handleFilteredDays;
-
-    const filteredUrl = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${filteredTime}&limit=600&minsig=600&minmagnitude=${filteredMagnitude}&alertlevel=${filteredAlertType}`;
+    const filteredUrl = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${filteredTime}&limit=600&minsig=600&minmagnitude=${filteredMinMagnitude}&maxmagnitude=${filteredMaxMagnitude}&alertlevel=${filteredAlertType}`;
 
     fetch(filteredUrl)
       .then(res => res.json())
       .then(data => this.setState({ earthquakes: data.features }));
-
-    console.log('ALLAA', filteredTime);
-    console.log('dsada');
   };
 
   componentDidMount = () => {
@@ -114,87 +118,105 @@ class MainContainer extends React.Component {
       toggleSortingDate,
       toggleSortingMag,
       filteredDays,
-      filteredMagnitude,
+      filteredMinMagnitude,
+      filteredMaxMagnitude,
       filteredAlertType,
     } = this.state;
 
-    console.log('days', filteredDays);
-    console.log('mag', filteredMagnitude);
-    console.log('alert', filteredAlertType);
-
-    console.log(moment(Date.now()).format('YYYY-MM-DD'));
     return (
       <div className="ui stackable one column grid ">
-        <div className="sixteen wide column">
+        <div className="six wide column">
           <div className="filter-main">
             <div>
               Sort by:
-              <button
-                className="ui button"
-                onClick={() =>
-                  this.handleClick('properties', 'time', toggleSortingDate)
-                }
+              <div>
+                <button
+                  className="ui button custom-button"
+                  onClick={() =>
+                    this.handleClick('properties', 'time', toggleSortingDate)
+                  }
+                >
+                  Sort by Date
+                </button>
+                <button
+                  className="ui button custom-button"
+                  onClick={() =>
+                    this.handleClick('properties', 'mag', toggleSortingMag)
+                  }
+                >
+                  Sort by Magnitude
+                </button>
+              </div>
+            </div>
+
+            <div className="custom-filter-section-bottom">
+              <div>Filters:</div>
+
+              <div className="custom-filter-section-bottom-inner">
+                <label>
+                  <input
+                    title="asdas"
+                    id="typeinp"
+                    type="range"
+                    min="0"
+                    max="30"
+                    value={filteredDays}
+                    onChange={this.handleFilteredDays}
+                    step="1"
+                  />
+                  <span>Days:&nbsp;</span>
+                  {filteredDays}
+                </label>
+
+                <label>
+                  <input
+                    id="typeinp"
+                    type="range"
+                    min="0"
+                    max="10"
+                    value={filteredMinMagnitude}
+                    onChange={this.handleMinFilteredMagnitude}
+                    step="0.1"
+                  />
+                  <span>Min mag:&nbsp;</span>
+                  {filteredMinMagnitude}
+                </label>
+                <label>
+                  <input
+                    id="typeinp"
+                    type="range"
+                    min="0"
+                    max="10"
+                    value={filteredMaxMagnitude}
+                    onChange={this.handleMaxFilteredMagnitude}
+                    step="0.1"
+                  />
+                  <span>Max mag:&nbsp;</span>
+                  {filteredMaxMagnitude}
+                </label>
+              </div>
+              <select
+                className="ui dropdown"
+                defaultValue={filteredAlertType}
+                onChange={this.handleAlertType}
               >
-                Sort by Date
-              </button>
+                <option value="">Alert Type</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+                <option value="orange">Orange</option>
+                <option value="red">Red</option>
+              </select>
+
               <button
-                className="ui button"
-                onClick={() =>
-                  this.handleClick('properties', 'mag', toggleSortingMag)
-                }
+                className="ui button custom-button"
+                onClick={this.handleApplyFilters}
               >
-                Sort by Magnitude
+                Apply filter
               </button>
             </div>
-            <div>Filters:</div>
-
-            <div>
-              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-              <label>
-                <input
-                  id="typeinp"
-                  type="range"
-                  min="0"
-                  max="30"
-                  value={filteredDays}
-                  onChange={this.handleFilteredDays}
-                  step="1"
-                />
-                {filteredDays}
-              </label>
-
-              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-              <label>
-                <input
-                  id="typeinp"
-                  type="range"
-                  min="0"
-                  max="10"
-                  value={filteredMagnitude}
-                  onChange={this.handleFilteredMagnitude}
-                  step="0.1"
-                />
-                {filteredMagnitude}
-              </label>
-            </div>
-            <select
-              className="ui dropdown"
-              defaultValue={filteredAlertType}
-              onChange={this.handleAlertType}
-            >
-              <option value="">Alert Type</option>
-              <option value="green">Green</option>
-              <option value="yellow">Yellow</option>
-              <option value="orange">Orange</option>
-              <option value="red">Red</option>
-            </select>
-
-            <button className="ui button" onClick={this.handleApplyFilters}>
-              Apply filter
-            </button>
           </div>
         </div>
-        <div className="thirteen wide column">
+        <div className="ten wide column">
           <Earthquakes earthquakes={earthquakes} />
         </div>
       </div>
