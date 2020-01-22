@@ -16,7 +16,7 @@ class Earthquakes extends React.Component {
 
     return (
       <div>
-        <div className="ui divided items">
+        <div className="ui divided center items">
           {earthquakes.map(earthquake => {
             return (
               <EarthquakeItem
