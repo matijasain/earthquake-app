@@ -5,6 +5,7 @@ Steps for local testing and development:
 2. cd to the cloned project
 3. npm install
 4. npm run
+5. npm run test (for automated tests)
 
 ---
 
