@@ -1,7 +1,5 @@
 # Earthquake-app
 
----
-
 Steps for local testing and development:
 1. GIT clone to desired location
 2. cd to the cloned project
