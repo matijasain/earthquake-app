@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import Earthquakes from './Earthquakes';
+import Earthquakes from '../Earthquakes';
 import './MainContainer.scss';
 
 class MainContainer extends React.Component {

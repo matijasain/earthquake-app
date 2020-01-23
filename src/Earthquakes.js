@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import EarthquakeItem from './EarthquakeItem';
-import EarthquakeMap from './EarthquakeMap';
+import EarthquakeItem from './EarthquakeItem/EarthquakeItem';
+import EarthquakeMap from './EarthquakeMap/EarthquakeMap';
 
 class Earthquakes extends React.Component {
   constructor(props) {

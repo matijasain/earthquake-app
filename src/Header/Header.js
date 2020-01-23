@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss';
 
-import logo from './img/seismic.png';
+import logo from '../img/seismic.png';
 
 const Header = () => (
   <div className="ui inverted vertical center aligned segment">
