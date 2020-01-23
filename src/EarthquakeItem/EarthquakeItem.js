@@ -51,17 +51,23 @@ class EarthquakeItem extends React.Component {
 }
 
 EarthquakeItem.propTypes = {
-  earthquakeName: PropTypes.string.isRequired,
-  earthquakeDate: PropTypes.number.isRequired,
-  earthquakeMagnitude: PropTypes.number.isRequired,
+  earthquakeName: PropTypes.string,
+  earthquakeDate: PropTypes.number,
+  earthquakeMagnitude: PropTypes.number,
   earthquakeAlert: PropTypes.string,
-  tsunami: PropTypes.number.isRequired,
-  earthquakeUrl: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  tsunami: PropTypes.number,
+  earthquakeUrl: PropTypes.string,
+  children: PropTypes.node,
 };
 
 EarthquakeItem.defaultProps = {
-  earthquakeAlert: null,
+  earthquakeName: '',
+  earthquakeAlert: '',
+  earthquakeDate: 1577833200000,
+  earthquakeMagnitude: 0,
+  tsunami: 0,
+  earthquakeUrl: '',
+  children: undefined,
 };
 
 export default EarthquakeItem;

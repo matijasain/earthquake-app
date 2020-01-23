@@ -26,8 +26,13 @@ class EarthquakeMap extends React.Component {
 }
 
 EarthquakeMap.propTypes = {
-  latitude: PropTypes.number.isRequired,
-  longitude: PropTypes.number.isRequired,
+  latitude: PropTypes.number,
+  longitude: PropTypes.number,
+};
+
+EarthquakeMap.defaultProps = {
+  latitude: 0,
+  longitude: 0,
 };
 
 export default EarthquakeMap;

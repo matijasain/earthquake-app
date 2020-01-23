@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<div
+  className="ui stackable one column grid "
+>
+  <div
+    className="six wide column"
+  >
+    <div
+      className="filter-main"
+    >
+      <div>
+        Sort by:
+        <div>
+          <button
+            className="ui button custom-button"
+            onClick={[Function]}
+          >
+            Sort by Date
+          </button>
+          <button
+            className="ui button custom-button"
+            onClick={[Function]}
+          >
+            Sort by Magnitude
+          </button>
+        </div>
+      </div>
+      <div
+        className="custom-filter-section-bottom"
+      >
+        <div>
+          Filters:
+        </div>
+        <div
+          className="custom-filter-section-bottom-inner"
+        >
+          <label>
+            <input
+              id="typeinp"
+              max="30"
+              min="0"
+              onChange={[Function]}
+              step="1"
+              title="asdas"
+              type="range"
+              value={30}
+            />
+            <span>
+              Days: 
+            </span>
+            30
+          </label>
+          <label>
+            <input
+              id="typeinp"
+              max="10"
+              min="0"
+              onChange={[Function]}
+              step="0.1"
+              type="range"
+              value={3}
+            />
+            <span>
+              Min mag: 
+            </span>
+            3
+          </label>
+          <label>
+            <input
+              id="typeinp"
+              max="10"
+              min="0"
+              onChange={[Function]}
+              step="0.1"
+              type="range"
+              value={7}
+            />
+            <span>
+              Max mag: 
+            </span>
+            7
+          </label>
+        </div>
+        <select
+          className="ui dropdown"
+          defaultValue=""
+          onChange={[Function]}
+        >
+          <option
+            value=""
+          >
+            Alert Type
+          </option>
+          <option
+            value="green"
+          >
+            Green
+          </option>
+          <option
+            value="yellow"
+          >
+            Yellow
+          </option>
+          <option
+            value="orange"
+          >
+            Orange
+          </option>
+          <option
+            value="red"
+          >
+            Red
+          </option>
+        </select>
+        <button
+          className="ui button custom-button"
+          onClick={[Function]}
+        >
+          Apply filter
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ten wide column"
+  >
+    <div>
+      <div
+        className="ui divided center items"
+      />
+    </div>
+  </div>
+</div>
+`;
