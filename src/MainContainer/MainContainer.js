@@ -178,7 +178,7 @@ class MainContainer extends React.Component {
                     onChange={this.handleMinFilteredMagnitude}
                     step="0.1"
                   />
-                  <span>Min mag:&nbsp;</span>
+                  <span>Min&nbsp;mag:&nbsp;</span>
                   {filteredMinMagnitude}
                 </label>
                 <label>
@@ -191,7 +191,7 @@ class MainContainer extends React.Component {
                     onChange={this.handleMaxFilteredMagnitude}
                     step="0.1"
                   />
-                  <span>Max mag:&nbsp;</span>
+                  <span>Max&nbsp;mag:&nbsp;</span>
                   {filteredMaxMagnitude}
                 </label>
               </div>
